@@ -10,20 +10,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Praktikum'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
   final String title;
 
   @override
@@ -31,6 +29,14 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,28 +44,49 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Container(
+      body: Center(
         child: Column(
-          children: [
-            Container(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
             width: 100,
             height: 100,
-            margin: EdgeInsets.only(bottom: 10),
+            margin: EdgeInsets.only(bottom: 30),
             color: Colors.red,
-    ),
-            Container(
+          ),
+          Container(
             width: 100,
             height: 100,
-            margin: EdgeInsets.only(bottom: 10),
+            margin: EdgeInsets.only(bottom: 30),
             color: Colors.blue,
-    ),
-            Container(
+            child: Column(
+              children: [
+                Container(
             width: 100,
             height: 100,
+            margin: EdgeInsets.only(right: 100),
+            color: Colors.green,
+
             ),
-                    ],
-        ),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+              ],
+            ),
+            ),
+          Container(
+            width: 100,
+            height: 100,
+            margin: EdgeInsets.only(bottom: 30),
+            color: Colors.green,
+            
+            ),
+             Container(
+            width: 100,
+            height: 100,
+            margin: EdgeInsets.only(bottom: 30),
+            color: Colors.red,
+          ),
+        ],
+            ),
+      ),
     );
   }
 }
